@@ -212,7 +212,6 @@ public class ElementUtil {
     optionsList.get(index).click();
   }
 
-
   public String doIndexElementText(By locator, int index) {
     List<WebElement> optionsList = driver.findElements(locator);
     return optionsList.get(index).getText();
@@ -691,16 +690,21 @@ public class ElementUtil {
   public void verifyTextInElementList(By locator, String expectedText) {
     List<WebElement> elements = driver.findElements(locator);
 
-    for (WebElement element : elements) {
-      String actualText = element.getText();
-
-      Assert.assertTrue(
-          actualText.contains(expectedText),
-          "Text verification failed. Expected: '"
-              + expectedText
-              + "', Actual: '"
-              + actualText
-              + "'");
-    }
+    Assert.assertThat("None of the elements contains the expected text",
+            elements, Matchers.hasItem(Matchers.hasProperty("text", Matchers.containsString(expectedText))));
   }
-}
+//    List<WebElement> elements = driver.findElements(locator);
+//
+//    for (WebElement element : elements) {
+//      String actualText = element.getText();
+//        Assert.assertTrue(
+//            actualText.contains(expectedText),
+//            "Text verification failed. Expected: '"
+//                + expectedText
+//                + "', Actual: '"
+//                + actualText
+//                + "'");
+//      }
+    }
+
+
