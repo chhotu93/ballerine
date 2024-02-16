@@ -47,18 +47,23 @@ public class RegisterPage {
   public final By cityTextBox = By.name("city-input");
 
   // Directors and UBOs elements
-  private final By titleOfUBo = By.cssSelector("[class*='grid'] [class*='text-3xl font-bold']");
-  private final By checkBox = By.cssSelector("[role='checkbox']");
+  public final By titleOfUBo = By.cssSelector("[class*='grid'] [class*='text-3xl font-bold']");
+  public final By checkBox = By.cssSelector("[role='checkbox']");
+  public final By checkBoxUBO =
+      By.xpath("//span[contains(text(),'25%')]/preceding-sibling::button[@aria-checked='false']");
+  public final By checkBoxDirectors =
+      By.xpath(
+          "//span[contains(text(),'I am a director')]/preceding-sibling::button[@aria-checked='false']");
   public final By countryListTextBox = By.cssSelector("[role*='option']");
-  private final By uboIdentityNumberTextBox = By.name("ubos:identity-number-input");
-  private final By uboAddressOfResidenceTextBox = By.name("ubos:address-of-residence-input");
-  private final By uboOwnershipPercentageTexBox = By.name("ubos:ownership-percentage-input");
+  public final By uboIdentityNumberTextBox = By.name("ubos:identity-number-input");
+  public final By uboAddressOfResidenceTextBox = By.name("ubos:address-of-residence-input");
+  public final By uboOwnershipPercentageTexBox = By.name("ubos:ownership-percentage-input");
   //  private final By directorsFirstNameTexBox = By.name("directors:first-name-input");
   //  private final By directorsLastNameTextBox = By.name("directors:last-name-input");
-  private final By directorsIdentityNumberTextBox = By.name("directors:identity-number-input");
-  private final By directorsAddressOfResidenceTextBox =
+  public final By directorsIdentityNumberTextBox = By.name("directors:identity-number-input");
+  public final By directorsAddressOfResidenceTextBox =
       By.name("directors:address-of-residence-input");
-  private final By FileAttache = By.cssSelector("[type='file']");
+  public final By FileAttache = By.cssSelector("[type='file']");
 
   // Contacts elements
   private final By contactFirstName = By.name("contact-first-name-input");
@@ -109,7 +114,8 @@ public class RegisterPage {
     eleUtil = new ElementUtil(this.driver);
   }
 
-  public void addUserEmail( String username,String domain) throws InterruptedException, URISyntaxException {
+  public void addUserEmail(String username, String domain)
+      throws InterruptedException, URISyntaxException {
     eleUtil.waitForVisibilityOfElement(getInbox, 30);
     eleUtil.doClick(getInbox);
     eleUtil.waitForVisibilityOfElement(userName, 20);

@@ -690,21 +690,23 @@ public class ElementUtil {
   public void verifyTextInElementList(By locator, String expectedText) {
     List<WebElement> elements = driver.findElements(locator);
 
-    Assert.assertThat("None of the elements contains the expected text",
-            elements, Matchers.hasItem(Matchers.hasProperty("text", Matchers.containsString(expectedText))));
-  }
-//    List<WebElement> elements = driver.findElements(locator);
-//
-//    for (WebElement element : elements) {
-//      String actualText = element.getText();
-//        Assert.assertTrue(
-//            actualText.contains(expectedText),
-//            "Text verification failed. Expected: '"
-//                + expectedText
-//                + "', Actual: '"
-//                + actualText
-//                + "'");
-//      }
+    for (WebElement element : elements) {
+      String actualText = element.getText();
+      Assert.assertTrue(
+          actualText.contains(expectedText),
+          "Text verification failed. Expected: '"
+              + expectedText
+              + "', Actual: '"
+              + actualText
+              + "'");
     }
+  }
 
-
+  public void verifyText(By locator, String expectedText) {
+    WebElement element = driver.findElement(locator);
+    String actualText = element.getText();
+    Assert.assertTrue(
+        actualText.contains(expectedText),
+        "Text verification failed. Expected: '" + expectedText + "', Actual: '" + actualText + "'");
+  }
+}

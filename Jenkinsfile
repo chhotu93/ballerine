@@ -51,22 +51,35 @@ pipeline
         stage('Publish sanity Extent Report'){
             steps{
                      publishHTML([allowMissing: false,
-                                  alwaysLinkToLastBuild: false, 
-                                  keepAll: true, 
-                                  reportDir: 'reports', 
-                                  reportFiles: 'TestExecutionReport.html', 
-                                  reportName: 'HTML Sanity Extent Report', 
+                                  alwaysLinkToLastBuild: false,
+                                  keepAll: true,
+                                  reportDir: 'reports',
+                                  reportFiles: 'TestExecutionReport.html',
+                                  reportName: 'HTML Sanity Extent Report',
                                   reportTitles: ''])
             }
         }
-        
-        
+
+
         stage("Deploy to PROD"){
             steps{
                 echo("deploy to PROD")
             }
         }
-        
+  stage('Publish Allure Results') {
+            steps {
+                script {
+                    // Publish Allure results to Jenkins
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'target/allure-results']]
+                    ])
+                }
+            }
+        }
         
     }
 }

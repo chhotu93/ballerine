@@ -34,5 +34,7 @@ public class AppConstants {
   public static final String PERSONAL_REGISTER_DATA_SHEET_NAME = "personal data";
   public static final String BUSINESS_INFORMATION_DATA = "BInformation";
   public static final String BUSINESS_ADDRESS_INFORMATION_DATA = "Business Address";
+  public static final String UBO_INFORMATION_DATA="UBOs";
+  public static final String DIRECTORS_INFORMATION_DATA="Directors";
 
 }

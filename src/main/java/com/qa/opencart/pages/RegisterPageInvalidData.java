@@ -2,13 +2,12 @@ package com.qa.opencart.pages;
 
 import com.qa.opencart.constants.AppConstants;
 import com.qa.opencart.utils.ElementUtil;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import java.time.Duration;
+import java.util.List;
 
 public class RegisterPageInvalidData {
   ElementUtil eleUtil;
@@ -19,7 +18,8 @@ public class RegisterPageInvalidData {
   private final By lastNameTextBox = By.name("last-name-input");
 
   private final By errorText = By.cssSelector("[class*='text-destructive']");
-  private final By errorInvalidDate = By.xpath("(//*[contains(@class,'text-destructive')])[1]");
+  private final By errorInvalidSingleText =
+      By.xpath("(//*[contains(@class,'text-destructive')])[1]");
   private final By title = By.cssSelector("input[placeholder*='CEO']");
   private final By dateOfBirth = By.cssSelector("[placeholder*='MM/DD/YYYY']");
   private final By phoneNumberTextBox = By.cssSelector("[type='tel']");
@@ -137,5 +137,74 @@ public class RegisterPageInvalidData {
     eleUtil.verifyTextInElementList(this.errorText, streetNumberValidation);
     eleUtil.verifyTextInElementList(this.errorText, cityValidation);
     eleUtil.verifyTextInElementList(this.errorText, countryValidation);
+  }
+
+  public void uboValidationError(
+      String countryName,
+      String uboIdentityNumber,
+      String uboAddress,
+      String uboPercentage,
+      String countyValidation,
+      String uboNoValidation,
+      String uboAddressValidation,
+      String uboPercentageValidation,
+      String directorsValidation)
+      throws InterruptedException {
+    eleUtil.waitForVisibilityOfElement(registerPage.titleOfUBo, 30);
+    try {
+      WebElement checkboxElement = driver.findElement(registerPage.checkBoxUBO);
+      if (!checkboxElement.isSelected()) {
+        checkboxElement.click();
+      }
+    } catch (NoSuchElementException ignore) {
+
+    }
+    eleUtil.doClick(country);
+    eleUtil.selectDropDownValue(registerPage.countryListTextBox, countryName);
+    eleUtil.clearInput(registerPage.uboIdentityNumberTextBox);
+    eleUtil.doSendKeys(registerPage.uboIdentityNumberTextBox, uboIdentityNumber);
+    eleUtil.clearInput(registerPage.uboAddressOfResidenceTextBox);
+    eleUtil.doSendKeys(registerPage.uboAddressOfResidenceTextBox, uboAddress);
+    eleUtil.clearInput(registerPage.uboOwnershipPercentageTexBox);
+    eleUtil.doSendKeys(registerPage.uboOwnershipPercentageTexBox, (uboPercentage));
+    eleUtil.doClick(continueButton);
+    eleUtil.verifyText(this.errorInvalidSingleText, countyValidation);
+    eleUtil.verifyText(this.errorInvalidSingleText, uboNoValidation);
+    eleUtil.verifyText(this.errorInvalidSingleText, uboAddressValidation);
+    eleUtil.verifyText(this.errorInvalidSingleText, uboPercentageValidation);
+    eleUtil.verifyText(this.errorInvalidSingleText, directorsValidation);
+  }
+
+  public void directorsValidationError(
+      String countryName,
+      String directorIdentityNumber,
+      String addressOfResidence,
+      String countyValidation,
+      String directorINoValidation,
+      String directorAddressValidation)
+      throws InterruptedException {
+
+    eleUtil.waitForVisibilityOfElement(registerPage.titleOfUBo, 30);
+    try {
+      WebElement checkboxElement = driver.findElement(registerPage.checkBoxDirectors);
+      if (!checkboxElement.isSelected()) {
+        checkboxElement.click();
+      }
+    } catch (NoSuchElementException ignore) {
+
+    }
+    eleUtil.doIndexElementClick(country, 1);
+    eleUtil.selectDropDownValue(registerPage.countryListTextBox, countryName);
+    eleUtil.clearInput(registerPage.directorsIdentityNumberTextBox);
+    eleUtil.doSendKeys(registerPage.directorsIdentityNumberTextBox, directorIdentityNumber);
+    eleUtil.clearInput(registerPage.directorsAddressOfResidenceTextBox);
+    eleUtil.doSendKeys(registerPage.directorsAddressOfResidenceTextBox, addressOfResidence);
+    eleUtil.doClick(continueButton);
+    try {
+      eleUtil.verifyText(this.errorInvalidSingleText, countyValidation);
+      eleUtil.verifyText(this.errorInvalidSingleText, directorINoValidation);
+      eleUtil.verifyText(this.errorInvalidSingleText, directorAddressValidation);
+    } catch (NoSuchElementException ignore) {
+    }
   }
 }
