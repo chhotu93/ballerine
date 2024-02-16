@@ -20,7 +20,7 @@ public class BaseTest {
   protected LoginPage loginPage;
   protected RegisterPage registerPage;
   protected SoftAssert softAssert;
-  protected  RegisterPageInvalidData registerInvalidData;
+  protected RegisterPageInvalidData registerInvalidData;
 
   @Parameters("browser")
   @BeforeTest
@@ -41,6 +41,6 @@ public class BaseTest {
 
   @AfterTest
   public void tearDown() {
-//    		driver.quit();
+    driver.quit();
   }
 }

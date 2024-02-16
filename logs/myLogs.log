@@ -1074,3 +1074,5 @@
 [INFO ] 2024-02-16 18:44:28.232 [main] DriverFactory - running it on local
 [INFO ] 2024-02-16 18:45:45.002 [main] DriverFactory - browser name is: chrome
 [INFO ] 2024-02-16 18:45:45.008 [main] DriverFactory - running it on local
+[INFO ] 2024-02-16 18:46:28.062 [main] DriverFactory - browser name is: chrome
+[INFO ] 2024-02-16 18:46:28.070 [main] DriverFactory - running it on local
