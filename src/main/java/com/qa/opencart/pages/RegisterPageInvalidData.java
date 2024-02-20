@@ -167,9 +167,7 @@ public class RegisterPageInvalidData {
     }
     try {
       eleUtil.doClick(country);
-    } catch (Exception ignore) {
 
-    }
     eleUtil.selectDropDownValue(registerPage.countryListTextBox, countryName);
     eleUtil.clearInput(registerPage.uboIdentityNumberTextBox);
     eleUtil.doSendKeys(registerPage.uboIdentityNumberTextBox, uboIdentityNumber);
@@ -184,6 +182,9 @@ public class RegisterPageInvalidData {
     eleUtil.verifyText(this.errorInvalidSingleText, uboAddressValidation);
     eleUtil.verifyText(this.errorInvalidSingleText, uboPercentageValidation);
     eleUtil.verifyText(this.errorInvalidSingleText, directorsValidation);
+    } catch (Exception ignore) {
+
+    }
   }
 
   public void directorsValidationError(
