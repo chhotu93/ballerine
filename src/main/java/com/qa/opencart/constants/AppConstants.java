@@ -36,5 +36,10 @@ public class AppConstants {
   public static final String BUSINESS_ADDRESS_INFORMATION_DATA = "Business Address";
   public static final String UBO_INFORMATION_DATA="UBOs";
   public static final String DIRECTORS_INFORMATION_DATA="Directors";
+  public static final String CONTACTS_INFORMATION_DATA="Contacts";
+  public static final String BANKING_DETAILS_INFORMATION_DATA="Banking Details";
+  public static final String STORE_INFORMATION_DATA="Store info";
+  public static final String WEBSITE_BASICS_INFORMATION_DATA="Website Basic Requirement";
+  public static final String PROCESSING_INFORMATION_DATA="Processing Details";
 
 }

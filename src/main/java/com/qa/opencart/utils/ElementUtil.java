@@ -682,9 +682,9 @@ public class ElementUtil {
   public void clearInput(By locator) throws InterruptedException {
     WebElement element = driver.findElement(locator);
     element.sendKeys(Keys.CONTROL + "a");
-    Thread.sleep(1000);
+    Thread.sleep(800);
     element.sendKeys(Keys.DELETE);
-    Thread.sleep(1400);
+    Thread.sleep(800);
   }
 
   public void verifyTextInElementList(By locator, String expectedText) {

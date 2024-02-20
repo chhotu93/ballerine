@@ -66,47 +66,47 @@ public class RegisterPage {
   public final By FileAttache = By.cssSelector("[type='file']");
 
   // Contacts elements
-  private final By contactFirstName = By.name("contact-first-name-input");
-  private final By contactLastName = By.name("contact-last-name-input");
-  private final By contactEmail = By.name("contact-email-input");
+  public final By contactFirstName = By.name("contact-first-name-input");
+  public final By contactLastName = By.name("contact-last-name-input");
+  public final By contactEmail = By.name("contact-email-input");
 
   // Banking Details elements
-  private final By cardholderName = By.name("card-holder-name-input");
-  private final By residentAddressInput = By.name("resident-address-input");
-  private final By accountNumberInput = By.name("account-number-input");
-  private final By ibanInput = By.name("iban-input");
-  private final By swiftCodeInput = By.name("swift-code-input");
-  private final By routeNumberInput = By.name("route-number-input");
-  private final By bankNameInput = By.name("bank-name-input");
-  private final By bankCodeInput = By.name("bank-code-input");
-  private final By bankAddressInput = By.name("bank-address-input");
-  private final By bankSubBranchInput = By.name("bank-sub-branch-input");
+  public final By cardholderName = By.name("card-holder-name-input");
+  public final By residentAddressInput = By.name("resident-address-input");
+  public final By accountNumberInput = By.name("account-number-input");
+  public final By ibanInput = By.name("iban-input");
+  public final By swiftCodeInput = By.name("swift-code-input");
+  public final By routeNumberInput = By.name("route-number-input");
+  public final By bankNameInput = By.name("bank-name-input");
+  public final By bankCodeInput = By.name("bank-code-input");
+  public final By bankAddressInput = By.name("bank-address-input");
+  public final By bankSubBranchInput = By.name("bank-sub-branch-input");
 
   // Store Info elements
 
-  private final By storeWebsiteUrlsInput = By.name("store-website-urls-input");
-  private final By storeDbaInput = By.name("store-dba-input");
-  private final By storeProductsInput = By.name("store-products-input");
+  public final By storeWebsiteUrlsInput = By.name("store-website-urls-input");
+  public final By storeDbaInput = By.name("store-dba-input");
+  public final By storeProductsInput = By.name("store-products-input");
 
   // Website Basic Requirement elements
 
-  private final By mainCompanyWebsiteInput = By.name("main-company-website-input");
-  private final By contactDetailsInput = By.name("contact-details-input");
-  private final By productQuantityInput = By.name("product-quantity-input");
-  private final By productDescriptionInput = By.name("product-description-input");
-  private final By productPriceInput = By.name("product-price-input");
+  public final By mainCompanyWebsiteInput = By.name("main-company-website-input");
+  public final By contactDetailsInput = By.name("contact-details-input");
+  public final By productQuantityInput = By.name("product-quantity-input");
+  public final By productDescriptionInput = By.name("product-description-input");
+  public final By productPriceInput = By.name("product-price-input");
 
   // Processing Details elements
 
-  private final By monthlySalesVolumeInput = By.name("monthly-sales-volume-input");
-  private final By monthlyNumberTransactionsInput = By.name("monthly-number-transactions-input");
-  private final By averageTicketSalesInput = By.name("average-ticket-sales-input");
-  private final By categoryInput = By.cssSelector("[placeholder*='Select more...']");
-  private final By monthlyTransactions = By.name("est-monthly-transactions-clipspay-input");
+  public final By monthlySalesVolumeInput = By.name("monthly-sales-volume-input");
+  public final By monthlyNumberTransactionsInput = By.name("monthly-number-transactions-input");
+  public final By averageTicketSalesInput = By.name("average-ticket-sales-input");
+  public final By categoryInput = By.cssSelector("[placeholder*='Select more...']");
+  public final By monthlyTransactions = By.name("est-monthly-transactions-clipspay-input");
 
   // form submitted successfully
 
-  private final By successfullyText = By.cssSelector(" img[src*='papers-checked.svg']");
+  public final By successfullyText = By.cssSelector(" img[src*='papers-checked.svg']");
   private final By logoImage = By.xpath("(//img[@alt='Clipspay'])[1]");
 
   public RegisterPage(WebDriver driver) {
